@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seema Ma'am's Coaching Centre — West Patel Nagar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --cream:#FFF8E7;
+  --cream-deep:#FBEFD2;
+  --marigold:#F4A300;
+  --burnt:#E85D04;
+  --cocoa:#7A2E00;
+  --ink:#2B2118;
+  --paper:#FFFDF8;
+  --slate:#3B2F26;
+  --slate-light:#4E4036;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  letter-spacing:-0.01em;
+}
+.container{max-width:1140px;margin:0 auto;padding:0 24px;}
+
+/* ---------- AMBIENT BACKGROUND ---------- */
+.glow{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:0.35;
+  z-index:0;
+  pointer-events:none;
+}
+.glow-1{width:480px;height:480px;background:var(--marigold);top:-120px;right:-100px;}
+.glow-2{width:380px;height:380px;background:var(--burnt);top:600px;left:-140px;opacity:0.25;}
+
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:18px 0;
+  background:rgba(255,248,231,0.7);
+  backdrop-filter:blur(16px) saturate(160%);
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  border-bottom:1px solid rgba(122,46,0,0.08);
+  transition:all .3s ease;
+}
+nav .container{display:flex;justify-content:space-between;align-items:center;}
+.logo{
+  font-family:'Fraunces',serif;
+  font-size:21px;font-weight:700;
+  color:var(--cocoa);
+  display:flex;align-items:center;gap:8px;
+}
+.logo .mark{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--marigold),var(--burnt));
+  display:flex;align-items:center;justify-content:center;
+  color:white;font-size:16px;font-weight:800;
+  font-family:'Manrope',sans-serif;
+  box-shadow:0 4px 14px rgba(232,93,4,0.35);
+}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{
+  text-decoration:none;color:var(--slate);font-weight:600;font-size:14.5px;
+  position:relative;padding:4px 0;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;
+  background:var(--burnt);transition:width .25s ease;
+}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{
+  background:linear-gradient(135deg,var(--marigold),var(--burnt));
+  color:white !important;padding:10px 20px;border-radius:30px;
+  font-weight:700;box-shadow:0 6px 18px rgba(232,93,4,0.3);
+}
+.nav-cta::after{display:none;}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;z-index:1;
+  padding:150px 24px 90px;
+  text-align:center;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.6);
+  border:1px solid rgba(122,46,0,0.12);
+  padding:8px 18px;border-radius:30px;
+  font-size:13.5px;font-weight:700;color:var(--cocoa);
+  margin-bottom:28px;
+  opacity:0;transform:translateY(14px);
+  animation:riseIn .7s ease forwards;
+  backdrop-filter:blur(6px);
+}
+.eyebrow .stars{color:var(--burnt);}
+.hero h1{
+  font-size:clamp(38px,7vw,68px);
+  line-height:1.05;
+  color:var(--ink);
+  max-width:780px;margin:0 auto 22px;
+  opacity:0;transform:translateY(22px);
+  animation:riseIn .8s ease forwards;
+  animation-delay:.12s;
+}
+.hero h1 em{
+  font-style:italic;
+  background:linear-gradient(120deg,var(--burnt),var(--marigold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.sub{
+  font-size:18px;color:var(--slate-light);max-width:560px;margin:0 auto 38px;
+  line-height:1.6;
+  opacity:0;transform:translateY(18px);
+  animation:riseIn .8s ease forwards;
+  animation-delay:.24s;
+}
+.hero-actions{
+  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  opacity:0;transform:translateY(16px);
+  animation:riseIn .8s ease forwards;
+  animation-delay:.36s;
+}
+@keyframes riseIn{to{opacity:1;transform:translateY(0);}}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 30px;border-radius:14px;
+  font-weight:700;font-size:15.5px;text-decoration:none;
+  transition:transform .25s ease,box-shadow .25s ease;
+  border:none;cursor:pointer;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--marigold),var(--burnt));
+  color:white;
+  box-shadow:0 10px 28px rgba(232,93,4,0.38);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(232,93,4,0.46);}
+.btn-ghost{
+  background:rgba(255,255,255,0.55);
+  color:var(--cocoa);
+  border:1.5px solid rgba(122,46,0,0.2);
+  backdrop-filter:blur(8px);
+}
+.btn-ghost:hover{background:rgba(255,255,255,0.85);transform:translateY(-3px);}
+.btn-whatsapp{
+  background:#25D366;color:white;
+  box-shadow:0 10px 28px rgba(37,211,102,0.35);
+}
+.btn-whatsapp:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(37,211,102,0.45);}
+
+/* ---------- STATS STRIP ---------- */
+.stats-strip{
+  position:relative;z-index:1;
+  display:flex;justify-content:center;gap:0;
+  flex-wrap:wrap;
+  max-width:880px;margin:0 auto 110px;
+  padding:0 24px;
+}
+.stat{
+  flex:1;min-width:140px;text-align:center;padding:0 18px;
+  border-right:1px solid rgba(122,46,0,0.12);
+}
+.stat:last-child{border-right:none;}
+.stat .num{
+  font-family:'Fraunces',serif;font-size:34px;font-weight:700;color:var(--cocoa);
+  display:block;
+}
+.stat .label{font-size:12.5px;color:var(--slate-light);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-top:4px;}
+
+/* ---------- SCROLL REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ---------- SECTION HEADERS ---------- */
+.section{position:relative;z-index:1;padding:90px 24px;}
+.section-head{text-align:center;max-width:620px;margin:0 auto 56px;}
+.section-tag{
+  font-size:13px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--burnt);margin-bottom:12px;display:block;
+}
+.section-head h2{font-size:clamp(28px,4.5vw,42px);color:var(--ink);line-height:1.15;}
+.section-head p{color:var(--slate-light);font-size:16px;margin-top:14px;line-height:1.6;}
+
+/* ---------- WHY US ---------- */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.why-card{
+  background:var(--paper);
+  border-radius:20px;padding:32px 26px;
+  border:1px solid rgba(122,46,0,0.08);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.why-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(122,46,0,0.1);}
+.why-icon{
+  width:50px;height:50px;border-radius:14px;
+  background:linear-gradient(135deg,var(--cream-deep),var(--marigold));
+  display:flex;align-items:center;justify-content:center;
+  font-size:23px;margin-bottom:18px;
+}
+.why-card h3{font-size:19px;color:var(--ink);margin-bottom:8px;font-weight:600;}
+.why-card p{font-size:14.5px;color:var(--slate-light);line-height:1.55;}
+
+/* ---------- COURSES (CHALKBOARD SLATE) ---------- */
+.courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.course-card{
+  background:var(--slate);
+  border-radius:22px;
+  padding:34px 28px;
+  color:var(--cream);
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s ease;
+}
+.course-card::before{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 32px);
+  pointer-events:none;
+}
+.course-card:hover{transform:translateY(-8px) rotate(-0.3deg);}
+.course-card .badge{
+  display:inline-block;font-size:12px;font-weight:700;
+  background:rgba(244,163,0,0.18);color:var(--marigold);
+  padding:5px 12px;border-radius:20px;margin-bottom:16px;
+  letter-spacing:0.03em;
+}
+.course-card h3{
+  font-family:'Fraunces',serif;font-size:23px;color:var(--cream);margin-bottom:14px;
+  position:relative;z-index:1;
+}
+.course-card ul{list-style:none;position:relative;z-index:1;}
+.course-card li{
+  font-size:14px;color:#E8DDC8;margin-bottom:9px;padding-left:20px;position:relative;line-height:1.5;
+}
+.course-card li::before{
+  content:'';position:absolute;left:0;top:7px;width:8px;height:8px;
+  border-radius:50%;background:var(--marigold);
+}
+
+/* ---------- FEE TABLE ---------- */
+.fee-wrapper{
+  background:var(--paper);border-radius:24px;padding:8px;
+  border:1px solid rgba(122,46,0,0.1);
+  box-shadow:0 20px 50px rgba(122,46,0,0.08);
+  overflow-x:auto;
+}
+.fee-table{width:100%;border-collapse:collapse;min-width:520px;}
+.fee-table thead th{
+  background:linear-gradient(135deg,var(--marigold),var(--burnt));
+  color:white;text-align:left;padding:18px 22px;font-size:14px;font-weight:700;
+}
+.fee-table thead th:first-child{border-radius:18px 0 0 0;}
+.fee-table thead th:last-child{border-radius:0 18px 0 0;}
+.fee-table tbody td{
+  padding:18px 22px;font-size:14.5px;color:var(--slate);
+  border-bottom:1px solid rgba(122,46,0,0.07);
+}
+.fee-table tbody tr:last-child td{border-bottom:none;}
+.fee-table tbody tr:hover td{background:var(--cream-deep);}
+.fee-table .price{font-weight:800;color:var(--cocoa);font-family:'Fraunces',serif;font-size:16px;}
+.fee-note{text-align:center;font-size:13px;color:var(--slate-light);margin-top:18px;}
+
+/* ---------- TESTIMONIALS ---------- */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.test-card{
+  background:var(--paper);border-radius:20px;padding:28px;
+  border:1px solid rgba(122,46,0,0.08);
+  position:relative;
+}
+.test-card .quote-mark{
+  font-family:'Fraunces',serif;font-size:50px;color:var(--marigold);
+  opacity:0.4;line-height:1;position:absolute;top:14px;right:20px;
+}
+.test-stars{color:var(--burnt);font-size:14px;margin-bottom:12px;letter-spacing:2px;}
+.test-text{font-size:14.5px;color:var(--slate);line-height:1.65;margin-bottom:16px;position:relative;z-index:1;}
+.test-name{font-size:13.5px;font-weight:700;color:var(--cocoa);}
+
+/* ---------- REGISTER / ENQUIRY ---------- */
+.register{
+  background:linear-gradient(135deg,var(--cocoa) 0%, #5a2200 100%);
+  border-radius:32px;
+  padding:60px 40px;
+  position:relative;
+  overflow:hidden;
+}
+.register::before{
+  content:'';position:absolute;width:340px;height:340px;border-radius:50%;
+  background:var(--marigold);filter:blur(100px);opacity:0.25;
+  top:-100px;right:-80px;
+}
+.register-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;position:relative;z-index:1;}
+.register-info h2{color:var(--cream);font-size:30px;margin-bottom:14px;}
+.register-info p{color:#E8DDC8;font-size:15px;line-height:1.65;margin-bottom:22px;}
+.register-info .info-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;color:var(--cream);font-size:14.5px;}
+.register-info .info-row .ic{
+  width:36px;height:36px;border-radius:10px;background:rgba(244,163,0,0.2);
+  display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;
+}
+form.enquiry{display:flex;flex-direction:column;gap:14px;}
+form.enquiry input,form.enquiry select{
+  padding:15px 18px;border-radius:12px;border:none;
+  background:rgba(255,255,255,0.95);font-family:'Manrope',sans-serif;font-size:14.5px;color:var(--ink);
+  outline:none;
+}
+form.enquiry input:focus,form.enquiry select:focus{box-shadow:0 0 0 3px rgba(244,163,0,0.5);}
+form.enquiry button{
+  margin-top:6px;padding:16px;border-radius:12px;border:none;
+  background:linear-gradient(135deg,var(--marigold),var(--burnt));
+  color:white;font-weight:800;font-size:15.5px;cursor:pointer;
+  transition:transform .25s ease;
+}
+form.enquiry button:hover{transform:translateY(-2px);}
+
+/* ---------- FOOTER ---------- */
+footer{
+  position:relative;z-index:1;
+  padding:50px 24px 30px;text-align:center;
+  border-top:1px solid rgba(122,46,0,0.1);
+}
+footer .logo{justify-content:center;margin-bottom:14px;}
+footer p{color:var(--slate-light);font-size:13.5px;line-height:1.7;}
+
+/* ---------- FLOATING WHATSAPP ---------- */
+.float-wa{
+  position:fixed;bottom:26px;right:26px;z-index:200;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 30px rgba(37,211,102,0.45);
+  text-decoration:none;
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 12px 30px rgba(37,211,102,0.45);}
+  50%{box-shadow:0 12px 30px rgba(37,211,102,0.45),0 0 0 10px rgba(37,211,102,0.12);}
+}
+.float-wa svg{width:28px;height:28px;}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:860px){
+  .nav-links a:not(.nav-cta){display:none;}
+  .why-grid,.courses-grid,.test-grid{grid-template-columns:1fr;}
+  .register-inner{grid-template-columns:1fr;}
+  .stats-strip{gap:8px 0;}
+  .stat{min-width:45%;border-right:none;margin-bottom:18px;}
+  .hero{padding:130px 20px 60px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important;}
+}
+</style>
+</head>
+<body>
+
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+
+<nav>
+  <div class="container">
+    <div class="logo"><span class="mark">S</span>Seema Ma'am's Coaching Centre</div>
+    <div class="nav-links">
+      <a href="#why">Why Us</a>
+      <a href="#courses">Courses</a>
+      <a href="#fees">Fees</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#register" class="nav-cta">Book Free Trial</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow"><span class="stars">★★★★★</span> 5.0 Rating · 65 Google Reviews</div>
+  <h1>Where every student finds <em>their own pace</em> of brilliance.</h1>
+  <p class="sub">CBSE & NIOS coaching for Classes 7–12 in West Patel Nagar — small batches, weekly tests, and teachers who actually know your name.</p>
+  <div class="hero-actions">
+    <a href="#register" class="btn btn-primary">Book a Free Trial Class</a>
+    <a href="https://wa.me/919310228484?text=Hi%2C%20I%20want%20to%20know%20more%20about%20classes%20at%20Seema%20Ma%27am%27s%20Coaching%20Centre" class="btn btn-whatsapp" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.96.55 3.84 1.6 5.46L2 22l4.79-1.69a9.86 9.86 0 0 0 5.25 1.5h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.79 14.07c-.25.7-1.44 1.34-1.97 1.4-.5.06-1.13.08-1.83-.12-.42-.12-.96-.31-1.65-.61-2.9-1.25-4.79-4.18-4.93-4.37-.14-.19-1.17-1.56-1.17-2.98s.74-2.11 1-2.4c.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.66.5.25.6.84 2.06.91 2.21.07.15.12.33.02.53-.1.2-.16.32-.31.49-.16.18-.33.4-.47.54-.15.15-.31.31-.13.6.18.3.81 1.34 1.74 2.17 1.2 1.07 2.21 1.4 2.51 1.55.3.15.48.13.66-.05.18-.18.74-.84.94-1.13.2-.29.4-.24.66-.14.27.1 1.71.81 2 .96.3.14.49.21.56.33.07.13.07.74-.18 1.44z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+</section>
+
+<div class="stats-strip reveal">
+  <div class="stat"><span class="num">5.0★</span><span class="label">Google Rating</span></div>
+  <div class="stat"><span class="num">65</span><span class="label">Reviews</span></div>
+  <div class="stat"><span class="num">7th–12th</span><span class="label">Classes Covered</span></div>
+  <div class="stat"><span class="num">Online</span><span class="label">& Offline Mode</span></div>
+</div>
+
+<section class="section" id="why">
+  <div class="section-head reveal">
+    <span class="section-tag">Why Families Choose Us</span>
+    <h2>A coaching centre that earned 65 five-star reviews the hard way</h2>
+    <p>No shortcuts — just consistent, personal teaching that actually shows in board results.</p>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-card">
+      <div class="why-icon">👩‍🏫</div>
+      <h3>Experienced Faculty</h3>
+      <p>Qualified teachers with years of focused CBSE & NIOS guidance — not generic tutors.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📊</div>
+      <h3>Weekly Tests & Assignments</h3>
+      <p>Regular evaluation so gaps get caught early, not discovered at board exam time.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <h3>Small Batch, Real Attention</h3>
+      <p>Every student is known by name — questions get answered, not lost in the crowd.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💻</div>
+      <h3>Online & Offline Classes</h3>
+      <p>Attend in-person at West Patel Nagar, or join live from home — your choice.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏆</div>
+      <h3>Proven Results</h3>
+      <p>Consistent track record across board exams and competitive entrance preparation.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <h3>A Centre That Feels Like Family</h3>
+      <p>Supportive, warm environment — students come back, and parents recommend us.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="courses">
+  <div class="section-head reveal">
+    <span class="section-tag">What We Teach</span>
+    <h2>Built around your board, your stream, your subjects</h2>
+  </div>
+  <div class="courses-grid reveal">
+    <div class="course-card">
+      <span class="badge">Class 7–10</span>
+      <h3>Foundation & Boards</h3>
+      <ul>
+        <li>Maths, Science, Social Science, English</li>
+        <li>Weekly tests with detailed feedback</li>
+        <li>Strong foundation for Class 11 streams</li>
+        <li>Doubt-clearing every session</li>
+      </ul>
+    </div>
+    <div class="course-card">
+      <span class="badge">Class 11–12 · Science Stream</span>
+      <h3>Pre-Engineering & Pre-Medical</h3>
+      <ul>
+        <li>Maths — full NCERT + board pattern</li>
+        <li>Concept clarity for competitive exams</li>
+        <li>Regular practice papers</li>
+        <li>One-on-one doubt sessions</li>
+      </ul>
+    </div>
+    <div class="course-card">
+      <span class="badge">Class 11–12 · Commerce/Humanities</span>
+      <h3>Economics & Political Science</h3>
+      <ul>
+        <li>Political Science — full syllabus coverage</li>
+        <li>Economics — concepts + case studies</li>
+        <li>Board exam writing practice</li>
+        <li>Current affairs integration</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="fees">
+  <div class="section-head reveal">
+    <span class="section-tag">Investment in Learning</span>
+    <h2>Simple, transparent fee structure</h2>
+    <p>No hidden charges. Ask about sibling discounts and trial class details.</p>
+  </div>
+  <div class="fee-wrapper reveal">
+    <table class="fee-table">
+      <thead>
+        <tr><th>Class</th><th>Subjects Covered</th><th>Monthly Fee</th><th>Mode</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>7th – 8th</td><td>Maths, Science, S.St., English</td><td class="price">₹2,000</td><td>Offline / Online</td></tr>
+        <tr><td>9th – 10th</td><td>Maths, Science, S.St., English</td><td class="price">₹2,500</td><td>Offline / Online</td></tr>
+        <tr><td>11th – 12th (Science)</td><td>Maths</td><td class="price">₹3,000</td><td>Offline / Online</td></tr>
+        <tr><td>11th – 12th (Commerce/Humanities)</td><td>Pol. Science, Economics</td><td class="price">₹3,000</td><td>Offline / Online</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fee-note">* Fees shown are indicative — please confirm exact pricing with the centre directly.</p>
+</section>
+
+<section class="section" id="reviews">
+  <div class="section-head reveal">
+    <span class="section-tag">In Their Words</span>
+    <h2>65 five-star reviews, a few in their own words</h2>
+  </div>
+  <div class="test-grid reveal">
+    <div class="test-card">
+      <div class="quote-mark">"</div>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">Very good place, quality education, well educated teachers and really impressive. Highly recommended!</p>
+      <div class="test-name">— Student Review</div>
+    </div>
+    <div class="test-card">
+      <div class="quote-mark">"</div>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">Experienced faculties, regular evaluation, friendly environment. Teachers really care about each student.</p>
+      <div class="test-name">— Class 12 Student</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="register">
+  <div class="register reveal">
+    <div class="register-inner">
+      <div class="register-info">
+        <h2>Book your free trial class</h2>
+        <p>Fill the form and we'll get in touch to schedule your first class — no commitment, just come see how we teach.</p>
+        <div class="info-row"><span class="ic">📍</span> Z75, Block A, West Patel Nagar, New Delhi - 110008</div>
+        <div class="info-row"><span class="ic">📞</span> 093102 28484</div>
+        <div class="info-row"><span class="ic">⏰</span> Open daily · Closes 7 PM</div>
+      </div>
+      <form class="enquiry" onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly to schedule your trial class.'); this.reset();">
+        <input type="text" placeholder="Your Name" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <select required>
+          <option value="" disabled selected>Select Class</option>
+          <option>Class 7</option>
+          <option>Class 8</option>
+          <option>Class 9</option>
+          <option>Class 10</option>
+          <option>Class 11 (Science)</option>
+          <option>Class 11 (Commerce/Humanities)</option>
+          <option>Class 12 (Science)</option>
+          <option>Class 12 (Commerce/Humanities)</option>
+        </select>
+        <button type="submit">Request Free Trial Class →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo"><span class="mark">S</span>Seema Ma'am's Coaching Centre</div>
+  <p>Z75, Block A, West Patel Nagar, New Delhi – 110008 &nbsp;·&nbsp; 093102 28484<br>
+  © 2024 Seema Ma'am's Coaching Centre. All rights reserved.</p>
+</footer>
+
+<a class="float-wa" href="https://wa.me/919310228484?text=Hi%2C%20I%20want%20to%20know%20more%20about%20classes" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.96.55 3.84 1.6 5.46L2 22l4.79-1.69a9.86 9.86 0 0 0 5.25 1.5h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.79 14.07c-.25.7-1.44 1.34-1.97 1.4-.5.06-1.13.08-1.83-.12-.42-.12-.96-.31-1.65-.61-2.9-1.25-4.79-4.18-4.93-4.37-.14-.19-1.17-1.56-1.17-2.98s.74-2.11 1-2.4c.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.66.5.25.6.84 2.06.91 2.21.07.15.12.33.02.53-.1.2-.16.32-.31.49-.16.18-.33.4-.47.54-.15.15-.31.31-.13.6.18.3.81 1.34 1.74 2.17 1.2 1.07 2.21 1.4 2.51 1.55.3.15.48.13.66-.05.18-.18.74-.84.94-1.13.2-.29.4-.24.66-.14.27.1 1.71.81 2 .96.3.14.49.21.56.33.07.13.07.74-.18 1.44z"/></svg>
+</a>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
